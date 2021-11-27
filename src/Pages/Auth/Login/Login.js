@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 
 const Login = ({ setAuthType, setAuthenticated }) => {
   const authDetails = {
     email: 'test@email.com',
     password: 'pass123',
   };
-
   const [loginDetails, setLoginDetails] = useState({
     email: '',
     password: '',
   });
   const [errorMessage, setErrorMessage] = React.useState('');
-
   const handleSubmit = (e) => {
     if (
       authDetails.email === loginDetails.email &&
@@ -21,7 +27,7 @@ const Login = ({ setAuthType, setAuthenticated }) => {
       setAuthType('');
       setErrorMessage('');
     } else {
-      setErrorMessage('Login failed.Please check credentials.');
+      setErrorMessage('Login failed. Please check credentials.');
     }
   };
 
@@ -42,14 +48,7 @@ const Login = ({ setAuthType, setAuthenticated }) => {
         <Typography component='h1' variant='h5'>
           Login
         </Typography>
-        <Box
-          component='form'
-          onSubmit={handleSubmit}
-          noValidate
-          sx={{
-            mt: 1,
-          }}
-        >
+        <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin='normal'
             label='Email Address'
@@ -57,10 +56,7 @@ const Login = ({ setAuthType, setAuthenticated }) => {
             fullWidth
             autoFocus
             onChange={(e) =>
-              setLoginDetails({
-                ...loginDetails,
-                email: e.target.value,
-              })
+              setLoginDetails({ ...loginDetails, email: e.target.value })
             }
           />
           <TextField
@@ -69,7 +65,7 @@ const Login = ({ setAuthType, setAuthenticated }) => {
             type='password'
             required
             fullWidth
-            onChange={() =>
+            onChange={(e) =>
               setLoginDetails({ ...loginDetails, password: e.target.value })
             }
           />
@@ -91,4 +87,5 @@ const Login = ({ setAuthType, setAuthenticated }) => {
     </Container>
   );
 };
+
 export default Login;
