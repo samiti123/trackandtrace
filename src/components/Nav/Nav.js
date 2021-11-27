@@ -5,28 +5,49 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { DeliveryDining } from '@mui/icons-material';
 
-export default function Nav() {
+const Nav = ({ setAuthType, authenticated, setAuthenticated }) => {
+  const handleAuthenticate = (type) => {
+    setAuthType(type);
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
         <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            Vodafone
+            <IconButton
+              size='large'
+              edge='start'
+              color='inherit'
+              aria-label='menu'
+              sx={{ mr: 2 }}
+              onClick={() => {
+                handleAuthenticate('');
+              }}
+            >
+              <DeliveryDining />
+            </IconButton>
           </Typography>
-          <Button color='inherit'>Login</Button>
+          {!authenticated ? (
+            <Button color='inherit' onClick={() => handleAuthenticate('login')}>
+              Login
+            </Button>
+          ) : (
+            <Button
+              color='inherit'
+              onClick={() => {
+                handleAuthenticate('');
+                setAuthenticated(false);
+              }}
+            >
+              Logout
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
   );
-}
+};
+
+export default Nav;

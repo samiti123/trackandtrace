@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Auth from './Pages/Auth/Auth';
 import Nav from './components/Nav/Nav';
 import Home from './Pages/Home/Home';
