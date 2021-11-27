@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import { Stack, Typography } from '@mui/material';
-import {
-  DeliveryDiningOutlined,
-  SentimentVerySatisfiedOutlined,
-} from '@mui/icons-material';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { TextField } from '@mui/material';
+import { DeliveryDiningOutlined } from '@mui/icons-material';
+import Tracker from '../../components/Tracker/Tracker';
 
 const Home = ({ data, setData, authenticated, setAuthType }) => {
   const [shippingId, setShippingId] = useState('');
