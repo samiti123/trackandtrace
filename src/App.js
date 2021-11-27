@@ -1,7 +1,7 @@
 import React from 'react';
 import Auth from './Pages/Auth/Auth';
 import Nav from './components/Nav/Nav';
-import Home from './Pages/Home/Home';
+import Home from '../src/Pages/Home/Home';
 import Footer from './components/Footer/Footer';
 
 import { shipping } from './data';
